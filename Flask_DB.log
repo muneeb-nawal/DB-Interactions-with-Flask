@@ -1,0 +1,22 @@
+ __main__ : 2021-06-05 13:33:55,661 : INFO : connected to atlas
+ __main__ : 2021-06-05 14:03:55,169 : INFO : Data inserted: {keyspace}.{tb_name}
+ __main__ : 2021-06-05 16:09:26,416 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:25 no viable alternative at input 'model' (INSERT INTO data.mtcars (['mode]...)">
+ __main__ : 2021-06-05 16:14:03,008 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:25 no viable alternative at input 'model' (INSERT INTO data.mtcars (['mode]...)">
+ __main__ : 2021-06-05 16:23:53,337 : INFO : Data inserted: {keyspace}.{tb_name}
+ __main__ : 2021-06-05 16:33:20,485 : INFO : error: name 'colname' is not defined
+ __main__ : 2021-06-05 16:35:24,481 : INFO : error: Error from server: code=2200 [Invalid query] message="PRIMARY KEY part model found in SET part"
+ __main__ : 2021-06-05 16:37:27,028 : INFO : error: Error from server: code=2200 [Invalid query] message="Some partition key parts are missing: model"
+ __main__ : 2021-06-05 16:38:39,301 : INFO : error: Error from server: code=2200 [Invalid query] message="Some partition key parts are missing: model"
+ __main__ : 2021-06-05 16:41:17,352 : INFO : error: Error from server: code=2200 [Invalid query] message="Some partition key parts are missing: model"
+ __main__ : 2021-06-05 16:52:05,711 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:56 no viable alternative at input 'RX4' (... 30  WHERE model IN ([Mazda] RX4...)">
+ __main__ : 2021-06-05 16:52:59,760 : INFO : Data updated: data.mtcars
+ __main__ : 2021-06-05 16:55:37,852 : INFO : Data updated: data.mtcars
+ __main__ : 2021-06-05 16:56:43,857 : INFO : Data updated: data.mtcars
+ __main__ : 2021-06-05 20:30:32,433 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:14 no viable alternative at input '{' (select * from [{]...)">
+ __main__ : 2021-06-05 20:32:42,549 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:14 no viable alternative at input '{' (select * from [{]...)">
+ __main__ : 2021-06-05 20:33:43,038 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:14 no viable alternative at input '{' (select * from [{]...)">
+ __main__ : 2021-06-05 20:34:45,784 : INFO : error: <Error from server: code=2000 [Syntax error in CQL query] message="line 1:102 no viable alternative at input 'RX4' (... vs, wt) VALUES ([Mazda] RX4...)">
+ __main__ : 2021-06-05 20:44:15,129 : INFO : error: Error from server: code=2200 [Invalid query] message="Invalid STRING constant (21) for "am" of type float"
+ __main__ : 2021-06-06 08:29:57,620 : INFO : CSV Data updated: data.mtcars
+ __main__ : 2021-06-06 09:04:43,043 : INFO : error: 'path'
+ __main__ : 2021-06-06 09:06:22,216 : INFO : CSV Downloaded at : C:\Users\mnnawal\Desktop\Ineuron\flask_demo\db CRUD

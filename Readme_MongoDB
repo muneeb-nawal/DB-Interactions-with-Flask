@@ -1,0 +1,141 @@
+FIRST RUN THE APP.
+=====================================================================================
+1. To see all datbases:
+
+    Postman_URL: http://127.0.0.1:5000//mongodb/showdb
+    Body: "BE SURE TO ENTER YOUR CRED"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    }
+
+=====================================================================================
+2. To create datbase:
+
+    Postman_URL: http://127.0.0.1:5000//mongodb/createdb
+    Body: "BE SURE TO ENTER YOUR CRED"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo"
+    }
+
+=====================================================================================
+3. To create collection:
+
+    Postman_URL: http://127.0.0.1:5000//mongodb/createcoll
+    Body:  "For MTCARS"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"mtcars"
+    }
+  
+    Body: "for CARBON_NANOTUBES"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"carbon"
+    }
+
+=====================================================================================    
+4. To insert a record in collection:
+    Postman_URL: http://127.0.0.1:5000//mongodb/insertrecord
+    Body:  "For MTCARS"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"mtcars",
+    "record": {
+            "model": "Mazda RX4",
+            "mpg": 21.0,
+            "cyl": 6,
+            "disp": 160.0,
+            "hp": 110,
+            "drat": 3.9,
+            "wt": 2.2,
+            "qsec": 16.46,
+            "vs": 0,
+            "am": 1,
+            "gear": 4,
+            "carb": 4
+        }
+    }
+    
+    Body: "for CARBON_NANOTUBES"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"carbon",
+    "record": {"Chiral indice n": 2,
+               "Chiral indice m": 1,
+               "Initial atomic coordinate u": 0.679005,
+               "Initial atomic coordinate v": 0.701318,
+               "Initial atomic coordinate w'": 0.017033,
+               "Calculated atomic coordinates u'": 0.721039,
+               "Calculated atomic coordinates v'": 0.730232,
+               "Calculated atomic coordinates w'": 0.017014
+              }
+    }
+    
+=====================================================================================
+
+4. To Update a value in collection_record:
+    Postman_URL: http://127.0.0.1:5000//mongodb/updatecol
+    Body:  "For MTCARS"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"mtcars",
+    "column_name":"model",
+    "old_value":"Mazda RX4",
+    "new_value":"new_car"
+    }
+    
+    Body: "for CARBON_NANOTUBES"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"carbon",
+    "column_name":"Chiral indice n",
+    "old_value":2,
+    "new_value":200
+    }
+
+=====================================================================================
+
+5. To insert data from CSV to mongodb with Python:
+    Postman_URL: http://127.0.0.1:5000//mongodb/insertcsv
+    Body:  "For MTCARS"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"mtcars",
+    "csv_file":"mtcars.csv"
+    }
+    
+    Body: "for CARBON_NANOTUBES"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"carbon",
+    "csv_file":"carbon.csv"
+    }
+    
+6. To download data:
+    Postman_URL: http://127.0.0.1:5000//mysql/download_data
+    Body:  "For MTCARS"
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"mtcars",
+    "exported_csv_name":"mongo_mtcars_download"
+    }
+    
+    {
+    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "db_name":"Pytomongo",
+    "coll_name":"carbon",
+    "exported_csv_name":"mongo_carbon_download"
+    }
+=====================================================================================
+=====================================================================================
+=====================================================================================
