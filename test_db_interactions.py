@@ -30,12 +30,18 @@ stream_handler = lg.StreamHandler() #no need to set log level as its set to erro
 logger.addHandler(stream_handler)
 #lg.basicConfig(filename = '{}.log'.format(__name__), level = lg.INFO,format = '%(asctime)s : %(levelname)s : %(message)s')
 
+from configparser import ConfigParser
+file = "config.ini"
+config = ConfigParser()
+config.read(file)
+
 @app.route('/mysql/showdb', methods=['POST']) # for calling the API from Postman/SOAPUI
-def show_db():
+def mysql_show_db():
     """ provide host, user, password as inputs"""
     try:
-        mydb = connection.connect(host=request.json['host'], user=request.json['user'], passwd=request.json['password'],use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
+        logger.info(f'connection established for insert : {mydb.is_connected()}')
 
         query = "SHOW DATABASES"
 
@@ -43,7 +49,7 @@ def show_db():
         cursor.execute(query)
         #print(cursor.fetchall())
         result = [i for i in cursor.fetchall()]
-        logger.info(f"All databases : {cursor.fetchall()}")
+        #logger.info(f"All databases : {cursor.fetchall()}")
         return jsonify(result)
 
     except Exception as e:
@@ -54,8 +60,9 @@ def show_db():
 def mysql_create_db():
     """ provide host, user, password, dbname, [drop = y/n] as inputs"""
     try:
-        mydb = connection.connect(host=request.json['host'],user=request.json['user'], passwd=request.json['password'],use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
+        logger.info(f'connection established for insert : {mydb.is_connected()}')
         dbname = request.json['dbname']
         query = f"Create database {dbname}"
         cursor = mydb.cursor() #create a cursor to execute queries
@@ -79,10 +86,9 @@ def mysql_create_db():
 @app.route('/mysql/createtable', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def mysql_create_table():
     try:
-        mydb = connection.connect(host=request.json['host'], user=request.json['user'], passwd=request.json['password'],
-                                  use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
-        print(mydb.is_connected())
+        logger.info(f'connection established for insert : {mydb.is_connected()}')
         dbname = request.json['dbname']
         tbname = request.json['tbname']
         schema = request.json['schema']
@@ -107,8 +113,7 @@ def mysql_create_table():
 @app.route('/mysql/insert_one', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def insert_dbtb_one():
     try:
-        mydb = connection.connect(host=request.json['host'], user=request.json['user'], passwd=request.json['password'],
-                                  use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
         logger.info(f'connection established for insert : {mydb.is_connected()}')
 
@@ -131,10 +136,9 @@ def insert_dbtb_one():
 @app.route('/mysql/update_tbcol', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def mysql_update():
     try:
-        mydb = connection.connect(host=request.json['host'], user=request.json['user'], passwd=request.json['password'],
-                                  use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
-        logger.info(f'connection established for insert : {mydb.is_connected()}')
+        logger.info(f'connection established for update: {mydb.is_connected()}')
 
         dbname = request.json['dbname']
         tbname = request.json['tbname']
@@ -158,8 +162,7 @@ def mysql_update():
 @app.route('/mysql/insert_csv', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def insert_dbtb_csv():
     try:
-        mydb = connection.connect(host=request.json['host'], user=request.json['user'], passwd=request.json['password'],
-                                  use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
         logger.info(f'connection established for insert : {mydb.is_connected()}')
 
@@ -192,8 +195,9 @@ def insert_dbtb_csv():
 def mysql_download_data():
     """ provide host, user, password as inputs"""
     try:
-        mydb = connection.connect(host=request.json['host'],user=request.json['user'], passwd=request.json['password'],use_pure=True)
+        mydb = connection.connect(host=config['mysql']['host'],user=config['mysql']['user'], passwd=config['mysql']['password'],use_pure=True)
         # check if the connection is established
+        logger.info(f'connection established for download : {mydb.is_connected()}')
         dbname = request.json['dbname']
         tbname = request.json['tbname']
         filename = request.json['filename']
@@ -220,7 +224,7 @@ def mysql_download_data():
 @app.route('/mongodb/showdb', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def mongo_showdb():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}") #get SRV from mongo atlas
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv']) #get SRV from mongo atlas
         logger.info(f"connected to atlas")
         return jsonify(client_atlas.list_database_names())  # dbname can be seen only once data is inserted
     except Exception as e:
@@ -230,7 +234,7 @@ def mongo_showdb():
 @app.route('/mongodb/createdb', methods=['POST']) # for calling the API from Postman/SOAPUI
 def mongo_createdb():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}")
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv'])
         db_name = request.json['db_name']
         # create db
         client_atlas[db_name]
@@ -244,7 +248,7 @@ def mongo_createdb():
 @app.route('/mongodb/createcoll', methods=['POST']) # for calling the API from Postman/SOAPUI
 def mongo_createcoll():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}")
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv'])
         db_name = request.json['db_name']
         coll_name = request.json['coll_name']
         #create db
@@ -260,7 +264,7 @@ def mongo_createcoll():
 @app.route('/mongodb/insertrecord', methods=['POST']) # for calling the API from Postman/SOAPUI
 def mongo_insertrecord():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}")
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv'])
         db_name = request.json['db_name']
         coll_name = request.json['coll_name']
         record = request.json['record']
@@ -278,7 +282,7 @@ def mongo_insertrecord():
 @app.route('/mongodb/insertcsv', methods=['POST']) # for calling the API from Postman/SOAPUI
 def mongo_insertcsv():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}")
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv'])
         db_name = request.json['db_name']
         coll_name = request.json['coll_name']
         csv_file = request.json['csv_file']
@@ -299,7 +303,7 @@ def mongo_insertcsv():
 @app.route('/mongodb/updatecol', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def mongo_updatecol():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}")
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv'])
         db_name = request.json['db_name']
         coll_name = request.json['coll_name']
         column_name = request.json['column_name']
@@ -322,7 +326,7 @@ def mongo_updatecol():
 @app.route('/mongodb/downloadcsv', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def mongo_downloadcsv():
     try:
-        client_atlas = pymongo.MongoClient(f"{request.json['url/srv']}")
+        client_atlas = pymongo.MongoClient(config['mongodb']['url/srv'])
         db_name = request.json['db_name']
         coll_name = request.json['coll_name']
         exported_csv_name = request.json['exported_csv_name']
@@ -345,50 +349,42 @@ def mongo_downloadcsv():
 @app.route('/cassandra/createtb', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def cassandra_createtb():
     try:
-        db_name = request.json['db_name']
-        client_id = request.json['client_id']
-        pswd = request.json['pswd']
         keyspace = request.json['keyspace']
         tb_name = request.json['tb_name']
         schema = request.json['schema']
 
         cloud_config = {
-            'secure_connect_bundle': f'secure-connect-{db_name}.zip'
+            'secure_connect_bundle': config['cassandra']['secure_connect_bundle']
         }
-        auth_provider = PlainTextAuthProvider(f"{client_id}", f"{pswd}")
+        auth_provider = PlainTextAuthProvider(config['cassandra']['client_id'], config['cassandra']['client_secret'])
         cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
         session = cluster.connect()
 
-        session.execute(f"create table {keyspace}.{tb_name} ({schema})")
-        logger.info(f"Table created: {keyspace}.{tb_name}")
+        session.execute(f"create table {keyspace}.{tb_name} ({schema});")
 
         return f"Table created: {keyspace}.{tb_name}"
     except Exception as e:
-        #print("error: ", e)
         logger.info(f"error: {e}")
         return "error: ", e
-
 
 @app.route('/cassandra/inserttb', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def cassandra_inserttb():
     try:
-        db_name = request.json['db_name']
-        client_id = request.json['client_id']
-        pswd = request.json['pswd']
         keyspace = request.json['keyspace']
         tb_name = request.json['tb_name']
 
         cloud_config = {
-            'secure_connect_bundle': f'secure-connect-{db_name}.zip'
+            'secure_connect_bundle': config['cassandra']['secure_connect_bundle']
         }
-        auth_provider = PlainTextAuthProvider(f'{client_id}', f'{pswd}')
+        auth_provider = PlainTextAuthProvider(config['cassandra']['client_id'], config['cassandra']['client_secret'])
         cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
         session = cluster.connect()
+
         rows = session.execute(f"select * from {keyspace}.{tb_name}")
         session.execute(
             f"INSERT INTO {keyspace}.{tb_name} ({', '.join([i for i in rows.column_names])}) VALUES ({request.json['record']}) IF NOT EXISTS ")
 
-        logger.info("Data inserted: {keyspace}.{tb_name}")
+        logger.info(f"Data inserted: {keyspace}.{tb_name}")
         return f"Data inserted: {keyspace}.{tb_name}"
     except Exception as e:
         #print("error: ", e)
@@ -399,9 +395,6 @@ def cassandra_inserttb():
 @app.route('/cassandra/updatetb', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def cassandra_updatetb():
     try:
-        db_name = request.json['db_name']
-        client_id = request.json['client_id']
-        pswd = request.json['pswd']
         keyspace = request.json['keyspace']
         tb_name = request.json['tb_name']
         colname = request.json['colname']
@@ -410,9 +403,9 @@ def cassandra_updatetb():
         ids = request.json['ids'] #specify multiple ids with a ','
 
         cloud_config = {
-            'secure_connect_bundle': f'secure-connect-{db_name}.zip'
+            'secure_connect_bundle': config['cassandra']['secure_connect_bundle']
         }
-        auth_provider = PlainTextAuthProvider(f'{client_id}', f'{pswd}')
+        auth_provider = PlainTextAuthProvider(config['cassandra']['client_id'], config['cassandra']['client_secret'])
         cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
         session = cluster.connect()
 
@@ -428,24 +421,22 @@ def cassandra_updatetb():
 @app.route('/cassandra/insertcsv', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def cassandra_insertcsv():
     try:
-        db_name = request.json['db_name']
-        client_id = request.json['client_id']
-        pswd = request.json['pswd']
         keyspace = request.json['keyspace']
         tb_name = request.json['tb_name']
         path = request.json['path']
 
         cloud_config = {
-            'secure_connect_bundle': f'secure-connect-{db_name}.zip'
+            'secure_connect_bundle': config['cassandra']['secure_connect_bundle']
         }
-        auth_provider = PlainTextAuthProvider(f'{client_id}', f'{pswd}')
+        auth_provider = PlainTextAuthProvider(config['cassandra']['client_id'], config['cassandra']['client_secret'])
         cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
         session = cluster.connect()
+
         rows = session.execute(f"select * from {keyspace}.{tb_name}")
         colnames = ', '.join([i for i in rows.column_names])
         #colnames = ', '.join([i for i in rows.one()._fields])
 
-        with open("mtcars.csv", 'r') as data:
+        with open(path, 'r') as data:
             next(data)
             db_csv = csv.reader(data, delimiter=',')
             # next(db_csv)
@@ -464,19 +455,17 @@ def cassandra_insertcsv():
 @app.route('/cassandra/downloadcsv', methods=['POST'])  # for calling the API from Postman/SOAPUI
 def cassandra_downloadcsv():
     try:
-        db_name = request.json['db_name']
-        client_id = request.json['client_id']
-        pswd = request.json['pswd']
         keyspace = request.json['keyspace']
         tb_name = request.json['tb_name']
         filename = request.json['filename']
 
         cloud_config = {
-            'secure_connect_bundle': f'secure-connect-{db_name}.zip'
+            'secure_connect_bundle': config['cassandra']['secure_connect_bundle']
         }
-        auth_provider = PlainTextAuthProvider(f'{client_id}', f'{pswd}')
+        auth_provider = PlainTextAuthProvider(config['cassandra']['client_id'], config['cassandra']['client_secret'])
         cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
         session = cluster.connect()
+
         query = f"select * from {keyspace}.{tb_name}"
         df = pd.DataFrame(session.execute(query))
         df.to_csv(f'{filename}.csv')

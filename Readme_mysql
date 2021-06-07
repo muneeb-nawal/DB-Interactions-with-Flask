@@ -4,11 +4,8 @@ FIRST RUN THE APP.
 
     Postman_URL: http://127.0.0.1:5000//mysql/showdb
     Body: "BE SURE TO ENTER YOUR CRED"
-    {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql"
-    }
+    
+    Not Required
 
 =====================================================================================
 2. To create datbase:
@@ -16,9 +13,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mysql/createdb
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "drop":"y"
     }
@@ -32,9 +26,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mysql/createtable
     Body:  "For MTCARS"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "mtcars",
     "schema":"model varchar(30),mpg int,cyl int,disp int,hp int,drat int,wt int,qsec int,vs int,am int,gear int,carb int"
@@ -42,9 +33,6 @@ FIRST RUN THE APP.
   
     Body: "for CARBON_NANOTUBES"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "carbon",
     "schema":"Chiralindicen int ,Chiralindicem int , Initialatomiccoordinateu dec(6,5) ,Initialatomiccoordinatev dec(6,5) , Initialatomiccoordinatew dec(6,5) ,Calculatedatomiccoordinatesu dec(6,5) , Calculatedatomiccoordinatesv dec(6,5) ,Calculatedatomiccoordinatesw dec(6,5)"
@@ -57,9 +45,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mysql/insert_one
     Body:  "For MTCARS"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "mtcars",
     "tbvalues": ["'Mazda RX4',21,6,160,110,3.9,2.62,16.46,0,1,4,4"]
@@ -68,9 +53,6 @@ FIRST RUN THE APP.
     OR
     
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "mtcars",
     "tbvalues": ["'Mazda RX4 Wag',21,6,160,110,3.9,2.875,17.02,0,1,4,4"]
@@ -78,9 +60,6 @@ FIRST RUN THE APP.
     
     Body: "for CARBON_NANOTUBES"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "carbon",
     "tbvalues": ["2,1,0.679005,0.701318,0.017033,0.721039,0.730232,0.017014"]
@@ -89,9 +68,6 @@ FIRST RUN THE APP.
     OR
     
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "carbon",
     "tbvalues": ["2,1,0.717298,0.642129,0.231319,0.738414,0.65675,0.232369"]
@@ -103,9 +79,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mysql/update_tbcol
     Body:  "For MTCARS"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "mtcars",
     "colname": "model",
@@ -115,9 +88,6 @@ FIRST RUN THE APP.
     
     Body: "for CARBON_NANOTUBES"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "carbon",
     "colname": "Chiralindicen",
@@ -131,9 +101,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mysql/insert_csv
     Body:  "For MTCARS"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "path": "mtcars.csv",
     "dbname":"sqltablepycharm",
     "tbname": "mtcars"
@@ -141,9 +108,6 @@ FIRST RUN THE APP.
     
     Body: "for CARBON_NANOTUBES"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "path": "carbon.csv",
     "dbname":"sqltablepycharm",
     "tbname": "carbon"
@@ -155,23 +119,16 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mysql/download_data
     Body:  "For MTCARS"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
     "dbname":"sqltablepycharm",
     "tbname": "mtcars",
-    "filename": "sql_mtcars_download"
+    "filename": "mysql_mtcars_download"
     }
 
     Body: "for CARBON_NANOTUBES"
     {
-    "host":"127.0.0.1",
-    "user": "root",
-    "password":"mysql",
-    "path": "carbon.csv",
     "dbname":"sqltablepycharm",
     "tbname": "carbon",
-    "filename": "sql_carbon_download"
+    "filename": "mysql_carbon_download"
     }
 =====================================================================================
 =====================================================================================

@@ -1,7 +1,7 @@
 FIRST RUN THE APP. 
 Note: 
 1. Datastax is used.
-2. All credentials specified are only for reference. By the time you see this file they will be destroyed.
+2. Kindly update credentials in the config file.
 3. Create a keyspace in the datastax as you wont be able to do it using python.
 4. Make sure to download the bundle of the db. and save it with other files. 
 5. keep the bundle where you plan to run the app.
@@ -12,9 +12,6 @@ Note:
     Postman_URL: http://127.0.0.1:5000//cassandra/createtb
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "db_name" : "cassanpy",
-    "client_id" : "XtIjMLPFNIXSuKMogthNpvRG",
-    "pswd" : "iwdAzS8w,P0,lqIq0z.gZEtHgf_chX1M,rW.4mXPYs4bIUqIdbHZU2nFbdKHzrp0nU.ioyUGc,,dn6NN_ZMdwLL0oFbrjoixkix4eeX4h6Nh6_sZSuwNflbSI1f6LGI5",
     "keyspace" : "data",
     "tb_name" : "mtcars",
     "schema" : "model varchar primary key,mpg float,cyl float,disp float,hp float,drat float,wt float,qsec float,vs float,am float,gear float,carb float"
@@ -26,9 +23,6 @@ Note:
     Postman_URL: http://127.0.0.1:5000//cassandra/inserttb
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "db_name" : "cassanpy",
-    "client_id" : "XtIjMLPFNIXSuKMogthNpvRG",
-    "pswd" : "iwdAzS8w,P0,lqIq0z.gZEtHgf_chX1M,rW.4mXPYs4bIUqIdbHZU2nFbdKHzrp0nU.ioyUGc,,dn6NN_ZMdwLL0oFbrjoixkix4eeX4h6Nh6_sZSuwNflbSI1f6LGI5",
     "keyspace" : "data",
     "tb_name" : "mtcars",
     "record": "'Mazda RX4 Wag',21,6,160,110,3.9,2.875,17.02,0,1,4,4"
@@ -37,9 +31,6 @@ Note:
     OR
     
     {
-    "db_name" : "cassanpy",
-    "client_id" : "XtIjMLPFNIXSuKMogthNpvRG",
-    "pswd" : "iwdAzS8w,P0,lqIq0z.gZEtHgf_chX1M,rW.4mXPYs4bIUqIdbHZU2nFbdKHzrp0nU.ioyUGc,,dn6NN_ZMdwLL0oFbrjoixkix4eeX4h6Nh6_sZSuwNflbSI1f6LGI5",
     "keyspace" : "data",
     "tb_name" : "mtcars",
     "record": "'Mazda RX4',21,6,160,110,3.9,2.62,16.46,0,1,4,4"
@@ -52,9 +43,6 @@ Note:
     Postman_URL: http://127.0.0.1:5000//cassandra/updatetb
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "db_name" : "cassanpy",
-    "client_id" : "XtIjMLPFNIXSuKMogthNpvRG",
-    "pswd" : "iwdAzS8w,P0,lqIq0z.gZEtHgf_chX1M,rW.4mXPYs4bIUqIdbHZU2nFbdKHzrp0nU.ioyUGc,,dn6NN_ZMdwLL0oFbrjoixkix4eeX4h6Nh6_sZSuwNflbSI1f6LGI5",
     "keyspace" : "data",
     "tb_name" : "mtcars",
     "colname": "mpg",
@@ -69,9 +57,6 @@ Note:
     Postman_URL: http://127.0.0.1:5000//cassandra/insertcsv
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "db_name" : "cassanpy",
-    "client_id" : "XtIjMLPFNIXSuKMogthNpvRG",
-    "pswd" : "iwdAzS8w,P0,lqIq0z.gZEtHgf_chX1M,rW.4mXPYs4bIUqIdbHZU2nFbdKHzrp0nU.ioyUGc,,dn6NN_ZMdwLL0oFbrjoixkix4eeX4h6Nh6_sZSuwNflbSI1f6LGI5",
     "keyspace" : "data",
     "tb_name" : "mtcars",
     "path" : "mtcars.csv"
@@ -83,9 +68,6 @@ Note:
     Postman_URL: http://127.0.0.1:5000//cassandra/downloadcsv
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "db_name" : "cassanpy",
-    "client_id" : "XtIjMLPFNIXSuKMogthNpvRG",
-    "pswd" : "iwdAzS8w,P0,lqIq0z.gZEtHgf_chX1M,rW.4mXPYs4bIUqIdbHZU2nFbdKHzrp0nU.ioyUGc,,dn6NN_ZMdwLL0oFbrjoixkix4eeX4h6Nh6_sZSuwNflbSI1f6LGI5",
     "keyspace" : "data",
     "tb_name" : "mtcars",
     "filename" : "cassanpy_download_mtcars"
@@ -94,7 +76,7 @@ Note:
 =====================================================================================
 =====================================================================================
 
-HELP for cassandra Commands:
+HELP for cassandra Commands(CQL):
 
 SELECT * FROM data.mtcars;
 

@@ -20,3 +20,63 @@
  __main__ : 2021-06-06 08:29:57,620 : INFO : CSV Data updated: data.mtcars
  __main__ : 2021-06-06 09:04:43,043 : INFO : error: 'path'
  __main__ : 2021-06-06 09:06:22,216 : INFO : CSV Downloaded at : C:\Users\mnnawal\Desktop\Ineuron\flask_demo\db CRUD
+ __main__ : 2021-06-07 18:03:28,330 : INFO : All databases : []
+ __main__ : 2021-06-07 18:37:00,504 : INFO : Database sqltablepycharm Created!!
+ __main__ : 2021-06-07 18:37:22,442 : WARNING : error rectified by drop: 1007 (HY000): Can't create database 'sqltablepycharm'; database exists
+ __main__ : 2021-06-07 18:37:23,851 : WARNING : error rectified by drop: 1007 (HY000): Can't create database 'sqltablepycharm'; database exists
+ __main__ : 2021-06-07 18:37:28,407 : WARNING : warning: 1007 (HY000): Can't create database 'sqltablepycharm'; database exists
+ __main__ : 2021-06-07 18:37:59,742 : INFO : Table mtcars Created!!
+ __main__ : 2021-06-07 18:38:12,255 : INFO : Table carbon Created!!
+ __main__ : 2021-06-07 18:38:35,657 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:38:35,710 : INFO : data inserted into db:sqltablepycharm; Table : mtcars
+ __main__ : 2021-06-07 18:38:46,960 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:38:46,970 : INFO : data inserted into db:sqltablepycharm; Table : mtcars
+ __main__ : 2021-06-07 18:38:57,371 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:38:57,395 : INFO : data inserted into db:sqltablepycharm; Table : carbon
+ __main__ : 2021-06-07 18:39:06,005 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:39:06,015 : INFO : data inserted into db:sqltablepycharm; Table : carbon
+ __main__ : 2021-06-07 18:39:25,770 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:39:25,782 : INFO : data updated into db:sqltablepycharm; Table : mtcars
+ __main__ : 2021-06-07 18:40:00,608 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:40:00,630 : INFO : data inserted into db:sqltablepycharm; Table : mtcars
+ __main__ : 2021-06-07 18:40:11,536 : INFO : connection established for insert : True
+ __main__ : 2021-06-07 18:40:13,032 : INFO : data inserted into db:sqltablepycharm; Table : carbon
+ __main__ : 2021-06-07 18:41:01,853 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 18:42:08,974 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 19:46:45,676 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 19:47:05,276 : INFO : connected to atlas
+ __main__ : 2021-06-07 19:49:07,467 : INFO : error: 'url/srv'
+ __main__ : 2021-06-07 19:49:33,879 : INFO : mt DB created but, can be seen only once data is inserted
+ __main__ : 2021-06-07 19:50:32,590 : INFO : mtcars collection created but, can be seen only once data is inserted
+ __main__ : 2021-06-07 19:51:04,716 : INFO : record inserted into collection mtcars
+ __main__ : 2021-06-07 19:54:32,325 : INFO : connected to atlas
+ __main__ : 2021-06-07 19:54:56,948 : INFO : Pytomongo DB created but, can be seen only once data is inserted
+ __main__ : 2021-06-07 19:55:15,105 : INFO : mtcars collection created but, can be seen only once data is inserted
+ __main__ : 2021-06-07 19:55:20,323 : INFO : carbon collection created but, can be seen only once data is inserted
+ __main__ : 2021-06-07 19:55:38,848 : INFO : record inserted into collection mtcars
+ __main__ : 2021-06-07 19:55:46,241 : INFO : record inserted into collection carbon
+ __main__ : 2021-06-07 19:55:53,623 : INFO : error: 'column_name'
+ __main__ : 2021-06-07 19:56:03,579 : INFO : collection (mtcars) updated 
+ __main__ : 2021-06-07 19:56:12,433 : INFO : collection (carbon) updated 
+ __main__ : 2021-06-07 19:56:27,483 : INFO : All data uploaded to mtcars in DB Pytomongo
+ __main__ : 2021-06-07 19:56:38,860 : INFO : All data uploaded to carbon in DB Pytomongo
+ __main__ : 2021-06-07 19:56:51,571 : INFO : connection established for download : True
+ __main__ : 2021-06-07 19:56:51,572 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 19:57:33,204 : INFO : connection established for download : True
+ __main__ : 2021-06-07 19:57:33,205 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 19:58:37,854 : INFO : connection established for download : True
+ __main__ : 2021-06-07 19:58:37,855 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 19:58:52,010 : INFO : connection established for download : True
+ __main__ : 2021-06-07 19:58:52,012 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 19:59:14,904 : INFO : connection established for download : True
+ __main__ : 2021-06-07 19:59:14,905 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 20:01:47,582 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 20:02:09,300 : INFO : file downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask
+ __main__ : 2021-06-07 20:47:04,251 : INFO : error: Table 'data.mt' already exists
+ __main__ : 2021-06-07 22:49:57,921 : INFO : error: 'db_name'
+ __main__ : 2021-06-07 22:51:40,327 : INFO : error: 'db_name'
+ __main__ : 2021-06-07 22:52:00,559 : INFO : Data inserted: {keyspace}.{tb_name}
+ __main__ : 2021-06-07 22:53:20,106 : INFO : Data inserted: data.mtcars
+ __main__ : 2021-06-07 22:53:58,106 : INFO : Data updated: data.mtcars
+ __main__ : 2021-06-07 22:54:27,171 : INFO : CSV Data updated: data.mtcars
+ __main__ : 2021-06-07 22:54:57,765 : INFO : CSV Downloaded at : C:\Users\mnnawal\Desktop\Ineuron\6. flask_demo\DB Interactions with Flask

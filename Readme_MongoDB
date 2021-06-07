@@ -4,9 +4,8 @@ FIRST RUN THE APP.
 
     Postman_URL: http://127.0.0.1:5000//mongodb/showdb
     Body: "BE SURE TO ENTER YOUR CRED"
-    {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    }
+    
+    Not Required
 
 =====================================================================================
 2. To create datbase:
@@ -14,7 +13,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mongodb/createdb
     Body: "BE SURE TO ENTER YOUR CRED"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo"
     }
 
@@ -24,14 +22,12 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mongodb/createcoll
     Body:  "For MTCARS"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"mtcars"
     }
   
     Body: "for CARBON_NANOTUBES"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"carbon"
     }
@@ -41,7 +37,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mongodb/insertrecord
     Body:  "For MTCARS"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"mtcars",
     "record": {
@@ -62,7 +57,6 @@ FIRST RUN THE APP.
     
     Body: "for CARBON_NANOTUBES"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"carbon",
     "record": {"Chiral indice n": 2,
@@ -82,7 +76,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mongodb/updatecol
     Body:  "For MTCARS"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"mtcars",
     "column_name":"model",
@@ -92,7 +85,6 @@ FIRST RUN THE APP.
     
     Body: "for CARBON_NANOTUBES"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"carbon",
     "column_name":"Chiral indice n",
@@ -106,7 +98,6 @@ FIRST RUN THE APP.
     Postman_URL: http://127.0.0.1:5000//mongodb/insertcsv
     Body:  "For MTCARS"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"mtcars",
     "csv_file":"mtcars.csv"
@@ -114,24 +105,21 @@ FIRST RUN THE APP.
     
     Body: "for CARBON_NANOTUBES"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"carbon",
     "csv_file":"carbon.csv"
     }
     
 6. To download data:
-    Postman_URL: http://127.0.0.1:5000//mysql/download_data
+    Postman_URL: http://127.0.0.1:5000//mongodb/downloadcsv
     Body:  "For MTCARS"
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"mtcars",
     "exported_csv_name":"mongo_mtcars_download"
     }
     
     {
-    "url/srv":"mongodb+srv://firstuser:luffyland@pymongodb.pdnvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "db_name":"Pytomongo",
     "coll_name":"carbon",
     "exported_csv_name":"mongo_carbon_download"
